@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital e IA: O Impacto das Deepfakes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cidadania Digital e Inteligência Artificial</h1>
+        <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <h2>O que são Deepfakes?</h2>
+            <p>Deepfakes são vídeos, áudios ou imagens manipulados por Inteligência Artificial para fazer parecer que alguém disse ou fez algo que não aconteceu na realidade.</p>
+            
+            <h3>Como identificar mídias manipuladas?</h3>
+            <ul>
+                <li><strong>Piscadas de olhos não naturais:</strong> Muitas IAs falham em replicar o piscar normal.</li>
+                <li><strong>Falhas nas bordas:</strong> Borrões perto do rosto, orelhas ou cabelo.</li>
+                <li><strong>Áudio desalinhado:</strong> O movimento dos lábios não bate perfeitamente com o som.</li>
+                <li><strong>Iluminação estranha:</strong> Sombras e reflexos que não condizem com o ambiente.</li>
+            </ul>
+        </section>
+
+        <section class="jogo-container">
+            <h2>Jogo: Fato ou Fake?</h2>
+            <p>Analise a afirmação abaixo e teste seus conhecimentos!</p>
+            <div id="pergunta-box">
+                <p id="texto-pergunta">Carregando pergunta...</p>
+                <button onclick="verificarResposta(true)">É Fato!</button>
+                <button onclick="verificarResposta(false)">É Fake!</button>
+            </div>
+            <p id="resultado-jogo"></p>
+        </section>
+
+        <section class="formulario-container">
+            <h2>Sua Opinião Importa</h2>
+            <p>Você já se deparou com alguma notícia ou vídeo que depois descobriu ser falso?</p>
+            <form id="form-comunidade" onsubmit="enviarDados(event)">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+
+                <label for="experiencia">Já foi enganado por uma Deepfake?</label>
+                <select id="experiencia">
+                    <option value="sim">Sim, infelizmente.</option>
+                    <option value="nao">Não, consigo identificar bem.</option>
+                    <option value="nao-sei">Não tenho certeza.</option>
+                </select>
+
+                <button type="submit">Enviar Relato</button>
+            </form>
+            <div id="mensagem-sucesso"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Projeto de Cidadania Digital. Desenvolvido para conscientização social.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
