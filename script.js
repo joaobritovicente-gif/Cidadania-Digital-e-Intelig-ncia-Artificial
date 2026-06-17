@@ -1,59 +1,75 @@
-// Banco de perguntas do jogo
+
 const perguntas = [
     {
-        texto: "Deepfakes só podem ser feitas em formato de vídeo.",
-        respostaCorreta: false // É fake, também existem deepfakes de voz/áudio e fotos.
+        pergunta: "Se você vir um vídeo de um político falando algo absurdo, o que deve fazer primeiro?",
+        opcoes: [
+            "Compartilhar imediatamente para alertar os amigos.",
+            "Procurar em agências de checagem ou jornais confiáveis se o vídeo é real.",
+            "Acreditar, afinal, se está em vídeo, deve ser verdade."
+        ],
+        correta: 1 // Segunda opção (começa do 0)
     },
     {
-        texto: "Prestar atenção ao piscar dos olhos e movimentos da boca ajuda a detectar vídeos falsos.",
-        respostaCorreta: true // É fato!
+        pergunta: "O que define uma 'Deepfake'?",
+        opcoes: [
+            "Uma notícia escrita com erros de português.",
+            "Um meme engraçado feito no Photoshop.",
+            "Vídeos ou áudios gerados por inteligência artificial que imitam pessoas reais."
+        ],
+        correta: 2 // Terceira opção
     },
     {
-        texto: "Qualquer ferramenta de Inteligência Artificial cria imagens 100% perfeitas e impossíveis de rastrear.",
-        respostaCorreta: false // É fake, a maioria deixa rastros digitais e imperfeições.
+        pergunta: "Qual é a melhor forma de combater a desinformação?",
+        opcoes: [
+            "Desenvolver o pensamento crítico e checar as fontes antes de repassar algo.",
+            "Parar de usar a internet por completo.",
+            "Apenas ler títulos de notícias."
+        ],
+        correta: 0 // Primeira opção
     }
 ];
 
-let perguntaAtualIndex = 0;
+let perguntaAtual = 0;
+
+const elementoPergunta = document.getElementById("pergunta");
+const elementoAlternativas = document.getElementById("alternativas");
+const elementoResultado = document.getElementById("resultado");
 
 function carregarPergunta() {
-    if (perguntaAtualIndex < perguntas.length) {
-        document.getElementById("texto-pergunta").innerText = perguntas[perguntaAtualIndex].texto;
-        document.getElementById("resultado-jogo").innerText = "";
+    if (perguntaAtual < perguntas.length) {
+        elementoPergunta.textContent = perguntas[perguntaAtual].pergunta;
+        elementoAlternativas.innerHTML = "";
+        elementoResultado.textContent = "";
+
+        perguntas[perguntaAtual].opcoes.forEach((opcao, index) => {
+            const botao = document.createElement("button");
+            botao.textContent = opcao;
+            botao.classList.add("btn-opcao");
+            botao.onclick = () => verificarResposta(index);
+            elementoAlternativas.appendChild(botao);
+        });
     } else {
-        document.getElementById("pergunta-box").innerHTML = "<h3>Parabéns! Você concluiu o quiz sobre desinformação!</h3>";
+        elementoPergunta.textContent = "Parabéns! Você concluiu o quiz de Cidadania Digital!";
+        elementoAlternativas.innerHTML = "";
+        elementoResultado.textContent = "Continue sendo um internauta atento e consciente.";
     }
 }
 
-function verificarResposta(respostaUsuario) {
-    const respostaCorreta = perguntas[perguntaAtualIndex].respostaCorreta;
-    const resultadoTexto = document.getElementById("resultado-jogo");
-
-    if (respostaUsuario === respostaCorreta) {
-        resultadoTexto.style.color = "#27ae60";
-        resultadoTexto.innerText = "Acertou! Excelente percepção crítica.";
+function verificarResposta(selecionada) {
+    if (selecionada === perguntas[perguntaAtual].correta) {
+        elementoResultado.textContent = "Resposta Correta! 🎉";
+        elementoResultado.style.color = "green";
     } else {
-        resultadoTexto.style.color = "#c0392b";
-        resultadoTexto.innerText = "Ops, resposta errada! Fique mais atento aos detalhes da mídia.";
+        elementoResultado.textContent = "Resposta Errada. ❌ Fique mais atento!";
+        elementoResultado.style.color = "red";
     }
 
-    // Avança para a próxima pergunta após 2 segundos
-    perguntaAtualIndex++;
-    setTimeout(carregarPergunta, 2500);
+    // Espera 2 segundos e passa para a próxima pergunta
+    setTimeout(() => {
+        perguntaAtual++;
+        carregarPergunta();
+    }, 2000);
 }
 
-// Lógica do Formulário Interativo
-function enviarDados(event) {
-    event.preventDefault(); // Impede a página de recarregar
-    
-    const nome = document.getElementById("nome").value;
-    const mensagemSucesso = document.getElementById("mensagem-sucesso");
-    
-    mensagemSucesso.innerText = `Obrigado pelo envio, ${nome}! Seus dados ajudam a mapear o alcance da desinformação.`;
-    
-    // Limpa o formulário
-    document.getElementById("form-comunidade").reset();
-}
-
-// Inicializa a primeira pergunta quando a página carrega
-window.onload = carregarPergunta;
+// Inicia o jogo
+carregarPergunta();
