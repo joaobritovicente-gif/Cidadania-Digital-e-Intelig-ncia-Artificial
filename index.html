@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital e IA: O Impacto das Deepfakes</title>
+    <title>Cidadania Digital & IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,55 +13,44 @@
         <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
     </header>
 
-    <main>
-        <section class="conteudo">
-            <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens manipulados por Inteligência Artificial para fazer parecer que alguém disse ou fez algo que não aconteceu na realidade.</p>
+    <nav>
+        <a href="#sobre">Sobre o Tema</a>
+        <a href="#deepfakes">Deepfakes</a>
+        <a href="#jogo">Desafio Fake ou Fato</a>
+    </nav>
+
+    <main class="container">
+        
+        <section id="sobre">
+            <h2>O que é Cidadania Digital?</h2>
+            <p>Ser um cidadão digital significa usar a tecnologia de forma responsável, crítica e ética. Com o avanço da Inteligência Artificial, esse papel se tornou ainda mais importante para sabermos navegar em um mar de informações.</p>
+            <img src="https://via.placeholder.com/600x300" alt="Ilustração de IA e Sociedade" class="img-central">
+        </section>
+
+        <section id="deepfakes">
+            <h2>O Perigo das Deepfakes</h2>
+            <p>Deepfakes são vídeos, áudios ou fotos criados por IA que imitam perfeitamente o rosto e a voz de pessoas reais. Elas podem ser usadas para espalhar desinformação (fake news) e manipular a opinião pública.</p>
+        </section>
+
+        <section id="jogo">
+            <h2>Jogo: Fake ou Fato?</h2>
+            <p>Teste suas habilidades de cidadão digital e descubra se você consegue identificar a desinformação!</p>
             
-            <h3>Como identificar mídias manipuladas?</h3>
-            <ul>
-                <li><strong>Piscadas de olhos não naturais:</strong> Muitas IAs falham em replicar o piscar normal.</li>
-                <li><strong>Falhas nas bordas:</strong> Borrões perto do rosto, orelhas ou cabelo.</li>
-                <li><strong>Áudio desalinhado:</strong> O movimento dos lábios não bate perfeitamente com o som.</li>
-                <li><strong>Iluminação estranha:</strong> Sombras e reflexos que não condizem com o ambiente.</li>
-            </ul>
-        </section>
-
-        <section class="jogo-container">
-            <h2>Jogo: Fato ou Fake?</h2>
-            <p>Analise a afirmação abaixo e teste seus conhecimentos!</p>
-            <div id="pergunta-box">
-                <p id="texto-pergunta">Carregando pergunta...</p>
-                <button onclick="verificarResposta(true)">É Fato!</button>
-                <button onclick="verificarResposta(false)">É Fake!</button>
+            <div id="quiz-container">
+                <div id="pergunta">Carregando pergunta...</div>
+                <div id="alternativas"></div>
+                <div id="resultado"></div>
             </div>
-            <p id="resultado-jogo"></p>
         </section>
 
-        <section class="formulario-container">
-            <h2>Sua Opinião Importa</h2>
-            <p>Você já se deparou com alguma notícia ou vídeo que depois descobriu ser falso?</p>
-            <form id="form-comunidade" onsubmit="enviarDados(event)">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" required>
-
-                <label for="experiencia">Já foi enganado por uma Deepfake?</label>
-                <select id="experiencia">
-                    <option value="sim">Sim, infelizmente.</option>
-                    <option value="nao">Não, consigo identificar bem.</option>
-                    <option value="nao-sei">Não tenho certeza.</option>
-                </select>
-
-                <button type="submit">Enviar Relato</button>
-            </form>
-            <div id="mensagem-sucesso"></div>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Projeto de Cidadania Digital. Desenvolvido para conscientização social.</p>
+        <p>&copy; 2026 - Projeto Escolar sobre Cidadania Digital</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+     
